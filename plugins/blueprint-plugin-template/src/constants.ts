@@ -1,5 +1,6 @@
 export const REPLACEMENTS: Record<string, string> = {
-  PLUGIN_NAME: "blueprint-plugin-name-placeholder",
+  PLUGIN_KEBAB_CASE_NAME: "blueprint-plugin-name-placeholder",
+  PLUGIN_CAMEL_CASE_NAME: "BlueprintPluginNamePlaceholder",
   PLUGIN_DISPLAY_NAME: "Blueprint Plugin Name Placeholder",
   PLUGIN_DESCRIPTION: "A blueprint plugin description placeholder.",
   PLUGIN_AUTHOR: "Blueprint Plugin Author Placeholder",

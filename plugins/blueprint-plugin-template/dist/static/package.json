@@ -1,5 +1,5 @@
 {
-  "name": "@amplication/plugin-blueprint-{{PLUGIN_NAME}}",
+  "name": "@amplication/plugin-{{PLUGIN_KEBAB_CASE_NAME}}",
   "version": "0.0.1",
   "description": "{{PLUGIN_DESCRIPTION}}",
   "main": "dist/index.js",

@@ -17218,7 +17218,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.REPLACEMENTS = void 0;
 exports.REPLACEMENTS = {
-    PLUGIN_NAME: "blueprint-plugin-name-placeholder",
+    PLUGIN_KEBAB_CASE_NAME: "blueprint-plugin-name-placeholder",
+    PLUGIN_CAMEL_CASE_NAME: "BlueprintPluginNamePlaceholder",
     PLUGIN_DISPLAY_NAME: "Blueprint Plugin Name Placeholder",
     PLUGIN_DESCRIPTION: "A blueprint plugin description placeholder.",
     PLUGIN_AUTHOR: "Blueprint Plugin Author Placeholder",
@@ -19460,8 +19461,10 @@ class BlueprintPluginTemplatePlugin {
         context.logger.info("Generating Static Files ...");
         // determine the name of the service which will be used as the name for the workflow
         // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
-        const pluginName = (0, lodash_1.snakeCase)(context.resourceInfo?.name);
-        constants_1.REPLACEMENTS.PLACEHOLDER_1 = pluginName;
+        const pluginName = context.resourceInfo?.name;
+        constants_1.REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = (0, lodash_1.kebabCase)(pluginName);
+        constants_1.REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = (0, lodash_1.camelCase)(pluginName);
+        constants_1.REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description || "";
         //@ts-ignore
         const params = eventParams;
         const basePluginPath = `./plugins/${pluginName}`;

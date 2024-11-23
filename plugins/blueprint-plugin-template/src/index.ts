@@ -6,7 +6,7 @@ import {
   IFile,
 } from "@amplication/code-gen-types";
 import { CodeBlock } from "@amplication/csharp-ast";
-import { snakeCase } from "lodash";
+import { camelCase, kebabCase } from "lodash";
 import { resolve, join } from "path";
 import { REPLACEMENTS } from "./constants";
 import { replacePlaceholders } from "./utils";
@@ -30,9 +30,11 @@ class BlueprintPluginTemplatePlugin
 
     // determine the name of the service which will be used as the name for the workflow
     // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
-    const pluginName = snakeCase(context.resourceInfo?.name);
+    const pluginName = context.resourceInfo?.name;
 
-    REPLACEMENTS.PLACEHOLDER_1 = pluginName;
+    REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = kebabCase(pluginName);
+    REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = camelCase(pluginName);
+    REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description || "";
 
     //@ts-ignore
     const params = eventParams as blueprint.CreateBlueprintParams;
