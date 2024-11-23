@@ -44,7 +44,9 @@ class BlueprintPluginTemplatePlugin
 
     REPLACEMENTS.AUTHOR = settings.author;
     REPLACEMENTS.LICENSE = settings.license;
-    REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.pluginSettings);
+    REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(
+      settings.copyPluginSettings,
+    );
 
     //@ts-ignore
     const params = eventParams as blueprint.CreateBlueprintParams;
