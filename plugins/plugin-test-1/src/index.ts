@@ -11,8 +11,7 @@ import { resolve } from "path";
 import { REPLACEMENTS } from "./constants";
 import { replacePlaceholders } from "./utils";
 
-class pluginTest1
-  implements blueprintTypes.AmplicationPlugin
+class pluginTest1 implements blueprintTypes.AmplicationPlugin
 {
   register(): blueprintPluginEventsTypes.BlueprintEvents {
     return {
@@ -24,7 +23,7 @@ class pluginTest1
   async afterLoadStaticFiles(
     context: blueprintTypes.DsgContext,
     eventParams: blueprint.CreateBlueprintParams,
-    files: FileMap<CodeBlock>
+    files: FileMap<CodeBlock>,
   ): Promise<FileMap<CodeBlock>> {
     context.logger.info("Generating Static Files ...");
 
