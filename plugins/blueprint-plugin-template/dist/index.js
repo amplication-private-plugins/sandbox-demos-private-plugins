@@ -19461,13 +19461,15 @@ class BlueprintPluginTemplatePlugin {
         context.logger.info("Generating Static Files ...");
         // determine the name of the service which will be used as the name for the workflow
         // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
-        const pluginName = context.resourceInfo?.name;
-        constants_1.REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = (0, lodash_1.kebabCase)(pluginName);
+        const pluginName = context.resourceInfo?.name || "plugin";
+        const kebabCasePluginName = (0, lodash_1.kebabCase)(pluginName.trim());
+        constants_1.REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = kebabCasePluginName;
         constants_1.REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = (0, lodash_1.camelCase)(pluginName);
+        constants_1.REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
         constants_1.REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description || "";
         //@ts-ignore
         const params = eventParams;
-        const basePluginPath = `./plugins/${pluginName}`;
+        const basePluginPath = `./plugins/${kebabCasePluginName}`;
         context.logger.info(`base plugin path: ${basePluginPath}`);
         // set the path to the static files and fetch them for manipulation
         const staticPath = (0, path_1.resolve)(__dirname, "./static");
