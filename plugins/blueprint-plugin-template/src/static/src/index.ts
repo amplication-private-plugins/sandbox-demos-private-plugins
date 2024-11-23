@@ -11,8 +11,7 @@ import { resolve } from "path";
 import { REPLACEMENTS } from "./constants";
 import { replacePlaceholders } from "./utils";
 
-class {{PLUGIN_CAMEL_CASE_NAME}}
-  implements blueprintTypes.AmplicationPlugin
+class {{PLUGIN_CAMEL_CASE_NAME}} implements blueprintTypes.AmplicationPlugin
 {
   register(): blueprintPluginEventsTypes.BlueprintEvents {
     return {
@@ -24,7 +23,7 @@ class {{PLUGIN_CAMEL_CASE_NAME}}
   async afterLoadStaticFiles(
     context: blueprintTypes.DsgContext,
     eventParams: blueprint.CreateBlueprintParams,
-    files: FileMap<CodeBlock>
+    files: FileMap<CodeBlock>,
   ): Promise<FileMap<CodeBlock>> {
     context.logger.info("Generating Static Files ...");
 
