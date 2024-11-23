@@ -1,4 +1,4 @@
-# Blueprint Plugin Name Placeholder
+# Plugin Test 1
 
 ## Overview
 
