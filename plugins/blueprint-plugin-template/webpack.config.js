@@ -35,7 +35,7 @@ export default {
     minimize: false,
   },
   output: {
-    filename: "index.js",
+    filename: "index.cjs",
     path: path.resolve("dist"),
     libraryTarget: "commonjs2",
     clean: true,
