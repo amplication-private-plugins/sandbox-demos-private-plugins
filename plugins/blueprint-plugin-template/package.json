@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "A template plugin for creating an Amplication Blueprint plugin. Use this template to create a new plugin.",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "prepublishOnly": "npm run build",
     "dev": "webpack --watch",

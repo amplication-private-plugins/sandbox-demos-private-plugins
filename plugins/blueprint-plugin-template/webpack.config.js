@@ -1,9 +1,9 @@
-import path from "path";
-import webpack from "webpack";
-import CopyWebpackPlugin from "copy-webpack-plugin";
+const path = require("path");
+const webpack = require("webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 /** @type {import("webpack").Configuration} */
-export default {
+module.exports = {
   mode: "production",
   target: "node",
   entry: "./src/index.ts",
@@ -35,8 +35,8 @@ export default {
     minimize: false,
   },
   output: {
-    filename: "index.cjs",
-    path: path.resolve("dist"),
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
     libraryTarget: "commonjs2",
     clean: true,
   },
