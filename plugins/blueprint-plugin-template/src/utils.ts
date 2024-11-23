@@ -25,6 +25,10 @@ export function replacePlaceholders(
   replacements: Record<string, string>
 ): string {
   return template.replace(/{{(.*?)}}/g, (match, key) => {
-    return replacements[key.trim()] || match; // Use placeholder if no replacement found
+    // Return the replacement value if it exists (even if it's an empty string)
+    // Otherwise, keep the placeholder
+    return Object.prototype.hasOwnProperty.call(replacements, key.trim())
+      ? replacements[key.trim()]
+      : match;
   });
 }
