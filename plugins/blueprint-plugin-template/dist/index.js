@@ -19476,7 +19476,7 @@ class BlueprintPluginTemplatePlugin {
         context.logger.info(`settings: ${JSON.stringify(settings)}`);
         constants_1.REPLACEMENTS.AUTHOR = settings.author;
         constants_1.REPLACEMENTS.LICENSE = settings.license;
-        constants_1.REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.copyPluginSettings, null, "\t");
+        constants_1.REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.copyPluginSettings, null, 2);
         //@ts-ignore
         const params = eventParams;
         const basePluginPath = `./plugins/${kebabCasePluginName}`;

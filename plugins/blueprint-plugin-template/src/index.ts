@@ -47,7 +47,7 @@ class BlueprintPluginTemplatePlugin
     REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(
       settings.copyPluginSettings,
       null,
-      "\t",
+      2,
     );
 
     //@ts-ignore
