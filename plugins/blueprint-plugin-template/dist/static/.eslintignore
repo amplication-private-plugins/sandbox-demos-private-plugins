@@ -4,5 +4,4 @@ dist
 **/src/models.ts
 **/*.stories.tsx
 coverage
-**/*.template.ts
 src/static

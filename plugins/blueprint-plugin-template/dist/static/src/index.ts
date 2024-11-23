@@ -11,7 +11,7 @@ import { resolve } from "path";
 import { REPLACEMENTS } from "./constants";
 import { replacePlaceholders } from "./utils";
 
-class BlueprintPluginTemplatePlugin
+class BlueprintPlugin{{PLUGIN_NAME}}
   implements blueprintTypes.AmplicationPlugin
 {
   register(): blueprintPluginEventsTypes.BlueprintEvents {

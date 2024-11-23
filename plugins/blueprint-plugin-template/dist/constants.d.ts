@@ -1,3 +1,1 @@
-export declare const SERVICE_NAME_KEY = "placeholder";
-export declare const SERVICE_PORT_KEY = "3000";
-export declare const DEFAULT_DOTNET_PORT = "8080";
+export declare const REPLACEMENTS: Record<string, string>;

@@ -1,4 +1,7 @@
-// global constants
-export const SERVICE_NAME_KEY = "placeholder";
-export const SERVICE_PORT_KEY = "3000";
-export const DEFAULT_DOTNET_PORT = "8080";
+export const REPLACEMENTS: Record<string, string> = {
+  PLUGIN_NAME: "blueprint-plugin-name-placeholder",
+  PLUGIN_DISPLAY_NAME: "Blueprint Plugin Name Placeholder",
+  PLUGIN_DESCRIPTION: "A blueprint plugin description placeholder.",
+  PLUGIN_AUTHOR: "Blueprint Plugin Author Placeholder",
+  PLUGIN_LICENSE: "Apache-2.0",
+};
