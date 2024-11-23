@@ -1,7 +1,7 @@
 {
-  "name": "@amplication/plugin-blueprint-blueprint-plugin-name-placeholder",
+  "name": "@amplication/plugin-plugin-test-1",
   "version": "0.0.1",
-  "description": "A blueprint plugin description placeholder.",
+  "description": "{{PLUGIN_DESCRIPTION}}",
   "main": "dist/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",

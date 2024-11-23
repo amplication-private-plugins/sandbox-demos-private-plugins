@@ -2,4 +2,4 @@
 
 ## Overview
 
-A blueprint plugin description placeholder.
+{{PLUGIN_DESCRIPTION}}

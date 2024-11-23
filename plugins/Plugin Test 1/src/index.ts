@@ -11,7 +11,7 @@ import { resolve } from "path";
 import { REPLACEMENTS } from "./constants";
 import { replacePlaceholders } from "./utils";
 
-class BlueprintPluginblueprint-plugin-name-placeholder
+class pluginTest1
   implements blueprintTypes.AmplicationPlugin
 {
   register(): blueprintPluginEventsTypes.BlueprintEvents {
@@ -58,4 +58,4 @@ class BlueprintPluginblueprint-plugin-name-placeholder
   }
 }
 
-export default BlueprintPluginTemplatePlugin;
+export default pluginTest1;
