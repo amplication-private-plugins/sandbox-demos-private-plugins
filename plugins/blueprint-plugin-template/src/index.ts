@@ -9,7 +9,7 @@ import { CodeBlock } from "@amplication/csharp-ast";
 import { camelCase, kebabCase } from "lodash";
 import { resolve, join } from "path";
 import { REPLACEMENTS } from "./constants";
-import { replacePlaceholders } from "./utils";
+import { replacePlaceholders, getPluginSettings } from "./utils";
 
 class BlueprintPluginTemplatePlugin
   implements blueprintTypes.AmplicationPlugin
@@ -24,7 +24,7 @@ class BlueprintPluginTemplatePlugin
   async afterLoadStaticFiles(
     context: blueprintTypes.DsgContext,
     eventParams: blueprint.CreateBlueprintParams,
-    files: FileMap<CodeBlock>
+    files: FileMap<CodeBlock>,
   ): Promise<FileMap<CodeBlock>> {
     context.logger.info("Generating Static Files ...");
 
@@ -37,6 +37,12 @@ class BlueprintPluginTemplatePlugin
     REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = camelCase(pluginName);
     REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
     REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? " ";
+
+    const settings = getPluginSettings(context.pluginInstallations);
+
+    REPLACEMENTS.AUTHOR = settings.author ?? REPLACEMENTS.AUTHOR;
+    REPLACEMENTS.LICENSE = settings.license ?? REPLACEMENTS.LICENSE;
+    REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.pluginSettings);
 
     //@ts-ignore
     const params = eventParams as blueprint.CreateBlueprintParams;
@@ -54,7 +60,7 @@ class BlueprintPluginTemplatePlugin
 
       item.path = join(
         basePluginPath,
-        replacePlaceholders(item.path, REPLACEMENTS)
+        replacePlaceholders(item.path, REPLACEMENTS),
       );
 
       context.logger.info(`generating file at path: ${item.path}`);

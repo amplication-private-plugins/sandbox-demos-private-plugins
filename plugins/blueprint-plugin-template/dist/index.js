@@ -17224,6 +17224,7 @@ exports.REPLACEMENTS = {
     PLUGIN_DESCRIPTION: "A blueprint plugin description placeholder.",
     PLUGIN_AUTHOR: "Blueprint Plugin Author Placeholder",
     PLUGIN_LICENSE: "Apache-2.0",
+    COPY_PLUGIN_SETTINGS: "{}",
 };
 
 
@@ -19361,7 +19362,7 @@ function __rewriteRelativeImportExtension(path, preserveJsx) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = {"settings":{}};
+module.exports = /*#__PURE__*/JSON.parse('{"settings":{"author":"Blueprint Plugin Author Placeholder","license":"Apache-2.0","copyPluginSettings":{"param1":"param1-value","param2":"param2-value","array":["array-value1","array-value2"]}}}');
 
 /***/ }),
 
@@ -19471,6 +19472,10 @@ class BlueprintPluginTemplatePlugin {
         constants_1.REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = (0, lodash_1.camelCase)(pluginName);
         constants_1.REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
         constants_1.REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? " ";
+        const settings = (0, utils_1.getPluginSettings)(context.pluginInstallations);
+        constants_1.REPLACEMENTS.AUTHOR = settings.author ?? constants_1.REPLACEMENTS.AUTHOR;
+        constants_1.REPLACEMENTS.LICENSE = settings.license ?? constants_1.REPLACEMENTS.LICENSE;
+        constants_1.REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.pluginSettings);
         //@ts-ignore
         const params = eventParams;
         const basePluginPath = `./plugins/${kebabCasePluginName}`;
