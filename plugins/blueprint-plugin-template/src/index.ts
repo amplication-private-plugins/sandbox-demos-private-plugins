@@ -40,8 +40,10 @@ class BlueprintPluginTemplatePlugin
 
     const settings = getPluginSettings(context.pluginInstallations);
 
-    REPLACEMENTS.AUTHOR = settings.author ?? REPLACEMENTS.AUTHOR;
-    REPLACEMENTS.LICENSE = settings.license ?? REPLACEMENTS.LICENSE;
+    context.logger.info(`settings: ${JSON.stringify(settings)}`);
+
+    REPLACEMENTS.AUTHOR = settings.author;
+    REPLACEMENTS.LICENSE = settings.license;
     REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.pluginSettings);
 
     //@ts-ignore

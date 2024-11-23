@@ -19473,8 +19473,9 @@ class BlueprintPluginTemplatePlugin {
         constants_1.REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
         constants_1.REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? " ";
         const settings = (0, utils_1.getPluginSettings)(context.pluginInstallations);
-        constants_1.REPLACEMENTS.AUTHOR = settings.author ?? constants_1.REPLACEMENTS.AUTHOR;
-        constants_1.REPLACEMENTS.LICENSE = settings.license ?? constants_1.REPLACEMENTS.LICENSE;
+        context.logger.info(`settings: ${JSON.stringify(settings)}`);
+        constants_1.REPLACEMENTS.AUTHOR = settings.author;
+        constants_1.REPLACEMENTS.LICENSE = settings.license;
         constants_1.REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.pluginSettings);
         //@ts-ignore
         const params = eventParams;
