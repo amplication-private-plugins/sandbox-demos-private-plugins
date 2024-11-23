@@ -19466,7 +19466,7 @@ class BlueprintPluginTemplatePlugin {
         constants_1.REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = kebabCasePluginName;
         constants_1.REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = (0, lodash_1.camelCase)(pluginName);
         constants_1.REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
-        constants_1.REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description || "";
+        constants_1.REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? "";
         //@ts-ignore
         const params = eventParams;
         const basePluginPath = `./plugins/${kebabCasePluginName}`;
