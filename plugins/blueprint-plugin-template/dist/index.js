@@ -19477,8 +19477,6 @@ class BlueprintPluginTemplatePlugin {
         constants_1.REPLACEMENTS.AUTHOR = settings.author;
         constants_1.REPLACEMENTS.LICENSE = settings.license;
         constants_1.REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(settings.copyPluginSettings, null, 2);
-        //@ts-ignore
-        const params = eventParams;
         const basePluginPath = `./plugins/${kebabCasePluginName}`;
         context.logger.info(`base plugin path: ${basePluginPath}`);
         // set the path to the static files and fetch them for manipulation

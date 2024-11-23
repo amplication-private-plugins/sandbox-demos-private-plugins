@@ -50,9 +50,6 @@ class BlueprintPluginTemplatePlugin
       2,
     );
 
-    //@ts-ignore
-    const params = eventParams as blueprint.CreateBlueprintParams;
-
     const basePluginPath = `./plugins/${kebabCasePluginName}`;
 
     context.logger.info(`base plugin path: ${basePluginPath}`);

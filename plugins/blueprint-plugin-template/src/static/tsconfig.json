@@ -15,7 +15,6 @@
     "allowSyntheticDefaultImports": true, // Allow default imports with interop
     "noImplicitAny": true, // Disallow `any` unless explicitly stated
     "noUnusedLocals": true, // Warn about unused local variables
-    "noUnusedParameters": true, // Warn about unused function parameters
     "noFallthroughCasesInSwitch": true // Prevent fallthrough in switch statements
   },
   "include": ["src/**/*"], // Include all files in the src directory
