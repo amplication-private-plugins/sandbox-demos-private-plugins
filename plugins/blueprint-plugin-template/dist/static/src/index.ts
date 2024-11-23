@@ -11,8 +11,7 @@ import { resolve } from "path";
 import { REPLACEMENTS } from "./constants";
 import { replacePlaceholders } from "./utils";
 
-class {{PLUGIN_CAMEL_CASE_NAME}} implements blueprintTypes.AmplicationPlugin
-{
+class {{PLUGIN_CAMEL_CASE_NAME}} implements blueprintTypes.AmplicationPlugin {
   register(): blueprintPluginEventsTypes.BlueprintEvents {
     return {
       createBlueprint: {
