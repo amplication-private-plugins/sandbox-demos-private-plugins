@@ -1,7 +1,7 @@
 {
   "name": "@amplication/plugin-plugin-test-1",
   "version": "0.0.1",
-  "description": "Testing creation of a plugin from Amplication",
+  "description": "{{PLUGIN_DESCRIPTION}}",
   "main": "dist/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",

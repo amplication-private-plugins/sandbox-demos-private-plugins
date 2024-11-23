@@ -2,4 +2,4 @@
 
 ## Overview
 
-Testing creation of a plugin from Amplication
+{{PLUGIN_DESCRIPTION}}
