@@ -1,3 +1,3 @@
 {
-  "settings": undefined
+  "settings": {"param1":"param1-value","param2":"param2-value","array":["array-value1","array-value2"]}
 }
