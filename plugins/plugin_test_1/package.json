@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "A blueprint plugin description placeholder.",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "prepublishOnly": "npm run build",
     "dev": "webpack --watch",
