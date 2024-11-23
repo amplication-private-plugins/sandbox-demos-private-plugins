@@ -46,6 +46,8 @@ class BlueprintPluginTemplatePlugin
     REPLACEMENTS.LICENSE = settings.license;
     REPLACEMENTS.COPY_PLUGIN_SETTINGS = JSON.stringify(
       settings.copyPluginSettings,
+      null,
+      "\t",
     );
 
     //@ts-ignore
