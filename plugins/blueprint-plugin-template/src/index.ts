@@ -7,7 +7,7 @@ import {
 } from "@amplication/code-gen-types";
 import { CodeBlock } from "@amplication/csharp-ast";
 import { snakeCase } from "lodash";
-import { resolve } from "path";
+import { resolve, join } from "path";
 import { REPLACEMENTS } from "./constants";
 import { replacePlaceholders } from "./utils";
 
@@ -37,7 +37,7 @@ class BlueprintPluginTemplatePlugin
     //@ts-ignore
     const params = eventParams as blueprint.CreateBlueprintParams;
 
-    const basePluginPath = `plugins/${pluginName}`;
+    const basePluginPath = `./plugins/${pluginName}`;
 
     context.logger.info(`base plugin path: ${basePluginPath}`);
 
@@ -48,7 +48,10 @@ class BlueprintPluginTemplatePlugin
     for (const item of staticFiles.getAll()) {
       item.code = replacePlaceholders(item.code, REPLACEMENTS);
 
-      item.path = `${basePluginPath}/${replacePlaceholders(item.path, REPLACEMENTS)}`;
+      item.path = join(
+        basePluginPath,
+        replacePlaceholders(item.path, REPLACEMENTS)
+      );
 
       context.logger.info(`generating file at path: ${item.path}`);
 
