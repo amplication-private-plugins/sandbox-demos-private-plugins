@@ -17224,6 +17224,7 @@ exports.REPLACEMENTS = {
     PLUGIN_DESCRIPTION: "A blueprint plugin description placeholder.",
     PLUGIN_AUTHOR: "Blueprint Plugin Author Placeholder",
     PLUGIN_LICENSE: "Apache-2.0",
+    EMPTY: "",
 };
 
 
