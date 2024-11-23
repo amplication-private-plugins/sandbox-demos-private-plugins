@@ -37,6 +37,10 @@ class BlueprintPluginTemplatePlugin
     //@ts-ignore
     const params = eventParams as blueprint.CreateBlueprintParams;
 
+    const basePluginPath = `plugins/${pluginName}`;
+
+    context.logger.info(`base plugin path: ${basePluginPath}`);
+
     // set the path to the static files and fetch them for manipulation
     const staticPath = resolve(__dirname, "./static");
     const staticFiles = await context.utils.importStaticFiles(staticPath, "./");
@@ -44,7 +48,9 @@ class BlueprintPluginTemplatePlugin
     for (const item of staticFiles.getAll()) {
       item.code = replacePlaceholders(item.code, REPLACEMENTS);
 
-      item.path = replacePlaceholders(item.path, REPLACEMENTS);
+      item.path = `${basePluginPath}/${replacePlaceholders(item.path, REPLACEMENTS)}`;
+
+      context.logger.info(`generating file at path: ${item.path}`);
 
       const file: IFile<CodeBlock> = {
         path: item.path,

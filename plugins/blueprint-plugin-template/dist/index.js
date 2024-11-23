@@ -19464,12 +19464,15 @@ class BlueprintPluginTemplatePlugin {
         constants_1.REPLACEMENTS.PLACEHOLDER_1 = pluginName;
         //@ts-ignore
         const params = eventParams;
+        const basePluginPath = `plugins/${pluginName}`;
+        context.logger.info(`base plugin path: ${basePluginPath}`);
         // set the path to the static files and fetch them for manipulation
         const staticPath = (0, path_1.resolve)(__dirname, "./static");
         const staticFiles = await context.utils.importStaticFiles(staticPath, "./");
         for (const item of staticFiles.getAll()) {
             item.code = (0, utils_1.replacePlaceholders)(item.code, constants_1.REPLACEMENTS);
-            item.path = (0, utils_1.replacePlaceholders)(item.path, constants_1.REPLACEMENTS);
+            item.path = `${basePluginPath}/${(0, utils_1.replacePlaceholders)(item.path, constants_1.REPLACEMENTS)}`;
+            context.logger.info(`generating file at path: ${item.path}`);
             const file = {
                 path: item.path,
                 code: new csharp_ast_1.CodeBlock({
