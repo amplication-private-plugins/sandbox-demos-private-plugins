@@ -36,7 +36,7 @@ class BlueprintPluginTemplatePlugin
     REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = kebabCasePluginName;
     REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = camelCase(pluginName);
     REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
-    REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? "";
+    REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? " ";
 
     //@ts-ignore
     const params = eventParams as blueprint.CreateBlueprintParams;
