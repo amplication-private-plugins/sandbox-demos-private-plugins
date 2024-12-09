@@ -19459,6 +19459,7 @@ class pluginTest1 {
         // determine the name of the service which will be used as the name for the workflow
         // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
         let pluginName = (0, lodash_1.snakeCase)(context.resourceInfo?.name);
+        context.logger.info("Context", undefined, JSON.stringify(context));
         //test resource settings
         if (Object.prototype.hasOwnProperty.call(context, "resourceSettings")) {
             context.logger.info("Resource settings found", undefined, JSON.stringify(context.resourceSettings));

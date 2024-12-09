@@ -30,6 +30,8 @@ class pluginTest1 implements blueprintTypes.AmplicationPlugin {
     // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
     let pluginName = snakeCase(context.resourceInfo?.name);
 
+    context.logger.info("Context", undefined, JSON.stringify(context));
+
     //test resource settings
     if (Object.prototype.hasOwnProperty.call(context, "resourceSettings")) {
       context.logger.info(
