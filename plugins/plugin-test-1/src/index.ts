@@ -40,7 +40,7 @@ class pluginTest1 implements blueprintTypes.AmplicationPlugin {
       pluginName = (context as any).resourceSettings?.properties?.pluginName;
     }
 
-    REPLACEMENTS.PLACEHOLDER_1 = pluginName;
+    REPLACEMENTS.PLUGIN_NAME = pluginName;
 
     //@ts-ignore
     const params = eventParams as blueprint.CreateBlueprintParams;

@@ -17218,7 +17218,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.REPLACEMENTS = void 0;
 exports.REPLACEMENTS = {
-    PLACEHOLDER_1: "John Doe",
+    PLUGIN_NAME: "John Doe",
     PLACEHOLDER_2: "30",
     PLACEHOLDER_3: "Developer",
 };
@@ -19464,7 +19464,7 @@ class pluginTest1 {
             context.logger.info("Resource settings found", undefined, JSON.stringify(context.resourceSettings));
             pluginName = context.resourceSettings?.properties?.pluginName;
         }
-        constants_1.REPLACEMENTS.PLACEHOLDER_1 = pluginName;
+        constants_1.REPLACEMENTS.PLUGIN_NAME = pluginName;
         //@ts-ignore
         const params = eventParams;
         // set the path to the static files and fetch them for manipulation
