@@ -33,19 +33,15 @@ class pluginTest1 implements blueprintTypes.AmplicationPlugin {
     context.logger.info("Context", undefined, JSON.stringify(context));
 
     //test resource settings
-    if (Object.prototype.hasOwnProperty.call(context, "resourceSettings")) {
-      context.logger.info(
-        "Resource settings found",
-        undefined,
-        JSON.stringify((context as any).resourceSettings),
-      );
-      pluginName = (context as any).resourceSettings?.properties?.pluginName;
-    }
+
+    context.logger.info(
+      "Resource settings found",
+      undefined,
+      JSON.stringify(context.resourceSettings),
+    );
+    pluginName = context.resourceSettings?.properties?.pluginName ?? pluginName;
 
     REPLACEMENTS.PLUGIN_NAME = pluginName;
-
-    //@ts-ignore
-    const params = eventParams as blueprint.CreateBlueprintParams;
 
     // set the path to the static files and fetch them for manipulation
     const staticPath = resolve(__dirname, "./static");

@@ -19362,7 +19362,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"settings":{"param1":"param1-value","
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@amplication/plugin-plugin-test-1","version":"0.0.1","description":"","main":"dist/index.js","scripts":{"prepublishOnly":"npm run build","dev":"webpack --watch","build":"webpack","prebuild":"rimraf dist","lint":"eslint . --ext .ts,.js","lint:fix":"eslint . --ext .ts,.js --fix","format":"prettier --write \\"src/**/*.{ts,js,json,md}\\"","format:check":"prettier --check \\"src/**/*.{ts,js,json,md}\\""},"author":"Blueprint Plugin Author Placeholder","license":"Apache-2.0","devDependencies":{"@amplication/code-gen-types":"^3.0.0","@amplication/code-gen-utils":"^0.0.9","@babel/parser":"^7.23.0","@babel/types":"^7.23.0","@types/lodash":"^4.14.200","@typescript-eslint/eslint-plugin":"^6.21.0","@typescript-eslint/parser":"^6.21.0","copy-webpack-plugin":"^12.0.2","eslint":"^8.57.1","eslint-config-prettier":"^9.1.0","eslint-plugin-prettier":"^5.2.1","jest-mock-extended":"^3.0.5","lodash":"^4.17.21","prettier":"^3.3.3","rimraf":"^5.0.5","ts-loader":"^9.5.0","typescript":"^5.2.2","webpack":"^5.89.0","webpack-cli":"^5.1.4"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@amplication/plugin-plugin-test-1","version":"0.0.1","description":"","main":"dist/index.js","scripts":{"prepublishOnly":"npm run build","dev":"webpack --watch","build":"webpack","prebuild":"rimraf dist","lint":"eslint . --ext .ts,.js","lint:fix":"eslint . --ext .ts,.js --fix","format":"prettier --write \\"src/**/*.{ts,js,json,md}\\"","format:check":"prettier --check \\"src/**/*.{ts,js,json,md}\\""},"author":"Blueprint Plugin Author Placeholder","license":"Apache-2.0","devDependencies":{"@amplication/code-gen-types":"^3.0.2","@amplication/code-gen-utils":"^0.0.9","@babel/parser":"^7.23.0","@babel/types":"^7.23.0","@types/lodash":"^4.14.200","@typescript-eslint/eslint-plugin":"^6.21.0","@typescript-eslint/parser":"^6.21.0","copy-webpack-plugin":"^12.0.2","eslint":"^8.57.1","eslint-config-prettier":"^9.1.0","eslint-plugin-prettier":"^5.2.1","jest-mock-extended":"^3.0.5","lodash":"^4.17.21","prettier":"^3.3.3","rimraf":"^5.0.5","ts-loader":"^9.5.0","typescript":"^5.2.2","webpack":"^5.89.0","webpack-cli":"^5.1.4"}}');
 
 /***/ })
 
@@ -19461,13 +19461,9 @@ class pluginTest1 {
         let pluginName = (0, lodash_1.snakeCase)(context.resourceInfo?.name);
         context.logger.info("Context", undefined, JSON.stringify(context));
         //test resource settings
-        if (Object.prototype.hasOwnProperty.call(context, "resourceSettings")) {
-            context.logger.info("Resource settings found", undefined, JSON.stringify(context.resourceSettings));
-            pluginName = context.resourceSettings?.properties?.pluginName;
-        }
+        context.logger.info("Resource settings found", undefined, JSON.stringify(context.resourceSettings));
+        pluginName = context.resourceSettings?.properties?.pluginName ?? pluginName;
         constants_1.REPLACEMENTS.PLUGIN_NAME = pluginName;
-        //@ts-ignore
-        const params = eventParams;
         // set the path to the static files and fetch them for manipulation
         const staticPath = (0, path_1.resolve)(__dirname, "./static");
         const staticFiles = await context.utils.importStaticFiles(staticPath, "./");
