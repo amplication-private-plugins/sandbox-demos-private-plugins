@@ -28,7 +28,17 @@ class pluginTest1 implements blueprintTypes.AmplicationPlugin {
 
     // determine the name of the service which will be used as the name for the workflow
     // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
-    const pluginName = snakeCase(context.resourceInfo?.name);
+    let pluginName = snakeCase(context.resourceInfo?.name);
+
+    //test resource settings
+    if (Object.prototype.hasOwnProperty.call(context, "resourceSettings")) {
+      context.logger.info(
+        "Resource settings found",
+        undefined,
+        JSON.stringify((context as any).resourceSettings),
+      );
+      pluginName = (context as any).resourceSettings?.properties?.pluginName;
+    }
 
     REPLACEMENTS.PLACEHOLDER_1 = pluginName;
 

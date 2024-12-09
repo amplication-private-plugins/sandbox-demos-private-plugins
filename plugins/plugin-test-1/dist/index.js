@@ -19354,7 +19354,7 @@ function __rewriteRelativeImportExtension(path, preserveJsx) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = {"settings":{}};
+module.exports = /*#__PURE__*/JSON.parse('{"settings":{"param1":"param1-value","param2":"param2-value","array":["array-value1","array-value2"]}}');
 
 /***/ }),
 
@@ -19458,7 +19458,12 @@ class pluginTest1 {
         context.logger.info("Generating Static Files ...");
         // determine the name of the service which will be used as the name for the workflow
         // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
-        const pluginName = (0, lodash_1.snakeCase)(context.resourceInfo?.name);
+        let pluginName = (0, lodash_1.snakeCase)(context.resourceInfo?.name);
+        //test resource settings
+        if (Object.prototype.hasOwnProperty.call(context, "resourceSettings")) {
+            context.logger.info("Resource settings found", undefined, JSON.stringify(context.resourceSettings));
+            pluginName = context.resourceSettings?.properties?.pluginName;
+        }
         constants_1.REPLACEMENTS.PLACEHOLDER_1 = pluginName;
         //@ts-ignore
         const params = eventParams;
