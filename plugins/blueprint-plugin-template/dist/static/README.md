@@ -3,3 +3,7 @@
 ## Overview
 
 {{PLUGIN_DESCRIPTION}}
+
+## Plugin Domain
+
+{{PLUGIN_DOMAIN}}
