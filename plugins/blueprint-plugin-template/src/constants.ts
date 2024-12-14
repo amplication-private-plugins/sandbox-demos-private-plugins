@@ -6,4 +6,5 @@ export const REPLACEMENTS: Record<string, string> = {
   PLUGIN_AUTHOR: "Blueprint Plugin Author Placeholder",
   PLUGIN_LICENSE: "Apache-2.0",
   COPY_PLUGIN_SETTINGS: "{}",
+  PLUGIN_DOMAIN: "",
 };

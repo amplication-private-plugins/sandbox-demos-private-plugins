@@ -31,12 +31,16 @@ class BlueprintPluginTemplatePlugin
     // determine the name of the service which will be used as the name for the workflow
     // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
     const pluginName = context.resourceInfo?.name || "plugin";
+
+    const properties = context.resourceInfo?.properties || {};
+
     const kebabCasePluginName = kebabCase(pluginName.trim());
 
     REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = kebabCasePluginName;
     REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = camelCase(pluginName);
     REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
     REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? " ";
+    REPLACEMENTS.PLUGIN_DOMAIN = (properties as any).DOMAIN || "";
 
     const settings = getPluginSettings(context.pluginInstallations);
 

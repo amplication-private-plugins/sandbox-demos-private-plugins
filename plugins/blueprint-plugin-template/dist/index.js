@@ -17225,6 +17225,7 @@ exports.REPLACEMENTS = {
     PLUGIN_AUTHOR: "Blueprint Plugin Author Placeholder",
     PLUGIN_LICENSE: "Apache-2.0",
     COPY_PLUGIN_SETTINGS: "{}",
+    PLUGIN_DOMAIN: "",
 };
 
 
@@ -19370,7 +19371,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"settings":{"author":"Blueprint Plugi
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@amplication/plugin-blueprint-plugin-template","version":"0.0.1","description":"A template plugin for creating an Amplication Blueprint plugin. Use this template to create a new plugin.","main":"dist/index.js","scripts":{"prepublishOnly":"npm run build","dev":"webpack --watch","build":"webpack","prebuild":"rimraf dist","lint":"eslint . --ext .ts,.js","lint:fix":"eslint . --ext .ts,.js --fix","format":"prettier --write \\"src/**/*.{ts,js,json,md}\\"","format:check":"prettier --check \\"src/**/*.{ts,js,json,md}\\""},"author":"Yuval Hazaz","license":"Apache-2.0","devDependencies":{"@amplication/code-gen-types":"^3.0.0","@amplication/code-gen-utils":"^0.0.9","@babel/parser":"^7.23.0","@babel/types":"^7.23.0","@types/lodash":"^4.14.200","@typescript-eslint/eslint-plugin":"^6.21.0","@typescript-eslint/parser":"^6.21.0","copy-webpack-plugin":"^12.0.2","eslint":"^8.57.1","eslint-config-prettier":"^9.1.0","eslint-plugin-prettier":"^5.2.1","jest-mock-extended":"^3.0.5","lodash":"^4.17.21","prettier":"^3.3.3","rimraf":"^5.0.5","ts-loader":"^9.5.0","typescript":"^5.2.2","webpack":"^5.89.0","webpack-cli":"^5.1.4"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@amplication/plugin-blueprint-plugin-template","version":"0.0.1","description":"A template plugin for creating an Amplication Blueprint plugin. Use this template to create a new plugin.","main":"dist/index.js","scripts":{"prepublishOnly":"npm run build","dev":"webpack --watch","build":"webpack","prebuild":"rimraf dist","lint":"eslint . --ext .ts,.js","lint:fix":"eslint . --ext .ts,.js --fix","format":"prettier --write \\"src/**/*.{ts,js,json,md}\\"","format:check":"prettier --check \\"src/**/*.{ts,js,json,md}\\""},"author":"Yuval Hazaz","license":"Apache-2.0","devDependencies":{"@amplication/code-gen-types":"3.1.0-beta","@amplication/code-gen-utils":"^0.0.9","@babel/parser":"^7.23.0","@babel/types":"^7.23.0","@types/lodash":"^4.14.200","@typescript-eslint/eslint-plugin":"^6.21.0","@typescript-eslint/parser":"^6.21.0","copy-webpack-plugin":"^12.0.2","eslint":"^8.57.1","eslint-config-prettier":"^9.1.0","eslint-plugin-prettier":"^5.2.1","jest-mock-extended":"^3.0.5","lodash":"^4.17.21","prettier":"^3.3.3","rimraf":"^5.0.5","ts-loader":"^9.5.0","typescript":"^5.2.2","webpack":"^5.89.0","webpack-cli":"^5.1.4"}}');
 
 /***/ })
 
@@ -19467,11 +19468,13 @@ class BlueprintPluginTemplatePlugin {
         // determine the name of the service which will be used as the name for the workflow
         // workflow names must be lower case letters and numbers. words may be separated with dashes (-):
         const pluginName = context.resourceInfo?.name || "plugin";
+        const properties = context.resourceInfo?.properties || {};
         const kebabCasePluginName = (0, lodash_1.kebabCase)(pluginName.trim());
         constants_1.REPLACEMENTS.PLUGIN_KEBAB_CASE_NAME = kebabCasePluginName;
         constants_1.REPLACEMENTS.PLUGIN_CAMEL_CASE_NAME = (0, lodash_1.camelCase)(pluginName);
         constants_1.REPLACEMENTS.PLUGIN_DISPLAY_NAME = pluginName;
         constants_1.REPLACEMENTS.PLUGIN_DESCRIPTION = context.resourceInfo?.description ?? " ";
+        constants_1.REPLACEMENTS.PLUGIN_DOMAIN = properties.DOMAIN || "";
         const settings = (0, utils_1.getPluginSettings)(context.pluginInstallations);
         context.logger.info(`settings: ${JSON.stringify(settings)}`);
         constants_1.REPLACEMENTS.AUTHOR = settings.author;
